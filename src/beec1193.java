@@ -11,18 +11,27 @@ public class beec1193 {
             String number = input[0];
             String base = input[1];
 
-            if (base.equals("bin")) {
-                int decValue = Integer.parseInt(number, 2);
-                System.out.println(decValue + " dec");
-                System.out.println(Integer.toHexString(decValue).toUpperCase() + " hex");
-            } else if (base.equals("dec")) {
-                int decValue = Integer.parseInt(number);
-                System.out.println(Integer.toHexString(decValue).toUpperCase() + " hex");
-                System.out.println(Integer.toBinaryString(decValue) + " bin");
-            } else if (base.equals("hex")) {
-                int decValue = Integer.parseInt(number, 16);
-                System.out.println(decValue + " dec");
-                System.out.println(Integer.toBinaryString(decValue) + " bin");
+            int decValue;
+
+            switch (base) {
+                case "bin":
+                    decValue = Integer.parseInt(number, 2);
+                    System.out.println(decValue + " dec");
+                    System.out.println(Integer.toHexString(decValue).toUpperCase() + " hex");
+                    break;
+                case "dec":
+                    decValue = Integer.parseInt(number);
+                    System.out.println(Integer.toHexString(decValue).toUpperCase() + " hex");
+                    System.out.println(Integer.toBinaryString(decValue) + " bin");
+                    break;
+                case "hex":
+                    decValue = Integer.parseInt(number, 16);
+                    System.out.println(decValue + " dec");
+                    System.out.println(Integer.toBinaryString(decValue) + " bin");
+                    break;
+                default:
+                    // Вы можете добавить обработку ошибок, если это необходимо
+                    System.out.println("Неверная база");
             }
 
             if (i < n - 1) {
